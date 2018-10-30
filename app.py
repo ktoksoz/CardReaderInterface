@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
 
-    with open('reader.csv', 'rb') as csvfile:
+    with open('reader.csv', 'r') as csvfile:
         csvReader = csv.reader(csvfile, delimiter=',')
         cardInfo = list(csvReader)
 
