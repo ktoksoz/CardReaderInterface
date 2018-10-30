@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Card Reader Interface</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/solid.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.min.css') }}">
+</head>
+<body>
+
+<table class="table table-striped">
+
+    <thead>
+    <tr>
+        <th>User</th>
+        <th>Card Number</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+
+
+    {% for c in cards %}
+        <tr>
+
+            <td>            {{ c[0] }}
+            </td>
+            <td>
+                {{ c[1] }}
+
+            </td>
+            <td>
+
+                {% if c[2]=="1" %}
+                    <span style="color: tomato">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </span>
+
+                {% else %}
+                    <span style="color: green">
+                     <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                {% endif %}
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>
